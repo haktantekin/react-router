@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import axios from "axios";
 
 
 function Users() {
@@ -6,9 +7,8 @@ function Users() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then((res) => res.json())
-        .then(data => setUsers(data))
+        axios("https://jsonplaceholder.typicode.com/users")
+        .then((resp) => setUsers(resp.data))
         .catch((e) => console.log(e))
         .finally(() => setIsLoading(false))
     },[])
