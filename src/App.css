@@ -4,3 +4,11 @@
   min-height: 100vh;
   color:#FFFFFF;
 }
+
+.active{
+  background-color: black;
+  color:#FFFFFF;
+}
+a{
+  color:#000000;
+}

@@ -3,28 +3,29 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  NavLink
 } from "react-router-dom";
 import Home from './components/Home'
 import About from './components/About'
 import Users from './components/Users'
 import User from './components/User'
+import Error404 from './components/Error404'
 
 
-function App(id) {
+function App() {
   return (
     <Router>
         <div>
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink className={(navData) => navData.isActive ? "active" : "" }  to="/">Home</NavLink>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <NavLink className={(navData) => navData.isActive ? "active" : "" }  to="/about">About</NavLink>
               </li>
               <li>
-                <Link to="/users">Users</Link>
+                <NavLink className={(navData) => navData.isActive ? "active" : "" }  to="/users">Users</NavLink>
               </li>
             </ul>
           </nav>
@@ -34,6 +35,7 @@ function App(id) {
             <Route path="/about" element={<About />}></Route>
             <Route path="/users" element={<Users />}></Route>
             <Route path="/user/:id"  element={<User/>}></Route>
+            <Route path="*"  element={<Error404 />}></Route>
           </Routes>
         </div>
     </Router>
