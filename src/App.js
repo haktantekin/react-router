@@ -8,9 +8,10 @@ import {
 import Home from './components/Home'
 import About from './components/About'
 import Users from './components/Users'
+import User from './components/User'
 
 
-function App() {
+function App(id) {
   return (
     <Router>
         <div>
@@ -29,12 +30,10 @@ function App() {
           </nav>
 
           <Routes>
-            <Route path="/about" element={<About />}>
-            </Route>
-            <Route path="/users" element={<Users />}>
-            </Route>
-            <Route exact path="/" element={<Home />}>
-            </Route>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/users" element={<Users />}></Route>
+            <Route path="/user/:id"  element={<User/>}></Route>
           </Routes>
         </div>
     </Router>
